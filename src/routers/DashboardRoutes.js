@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import { ContainerPoke } from "../components/containerPoke/ContainerPoke";
+import { ContainerPoke } from "../components/containerPokemones/ContainerPoke";
 import { ContainerPokemon } from "../components/pokemon/ContainerPokemon";
 import { Navbar } from "../components/ui/NavBar";
 export const DashboardRoutes = () => {

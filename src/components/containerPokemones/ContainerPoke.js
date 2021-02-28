@@ -3,9 +3,14 @@ import { AllPokemonsContext } from "../../context/AllPokemosContext";
 import { CardPoke } from "./CardPoke";
 
 export const ContainerPoke = () => {
-  const { filterPokemon, hadleInputChange, page, setPage } = useContext(
-    AllPokemonsContext
-  );
+  const {
+    filterPokemon,
+    hadleInputChange,
+    page,
+    setPage,
+    filterTypesPokemon,
+    hadleInputTypePoke
+  } = useContext(AllPokemonsContext);
 
   const [amount, setAmount] = useState(4);
 
@@ -35,10 +40,19 @@ export const ContainerPoke = () => {
       </button>
     ));
 
+  const optionTypePoke = filterTypesPokemon.map((type) => (
+    <option key={type.name}>{type.name}</option>
+  ));
+
   return (
     <div>
       <input type="text" onChange={hadleInputChange} />
-      <p>{pagesAmount}</p>
+
+      <select type="select" onChange={hadleInputTypePoke}>
+        <option>Type Pokemon</option>
+        {optionTypePoke}
+      </select>
+
       <p>page:{page}</p>
       {pages.length > 0 && pages}
       <div>{CardPokemon}</div>

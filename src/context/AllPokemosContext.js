@@ -34,9 +34,8 @@ const AllPokemonsProvider = (props) => {
       const listPoke = response.data.pokemon.map((p) => p.pokemon);
       setFilterPokemon(listPoke);
     };
-    if (optionTypePoke) {
-      getTypesPokes(optionTypePoke.url);
-    }
+    if (optionTypePoke) getTypesPokes(optionTypePoke.url);
+    else setFilterPokemon(allPokemon);
   }, [optionTypePoke]);
 
   const hadleInputChange = ({ target }) => {
@@ -54,6 +53,7 @@ const AllPokemonsProvider = (props) => {
     const type = e.target.value;
     const urlTypePoke = filterTypesPokemon.find((t) => t.name === type);
     setOptionTypePoke(urlTypePoke);
+    console.log(urlTypePoke);
   };
 
   return (

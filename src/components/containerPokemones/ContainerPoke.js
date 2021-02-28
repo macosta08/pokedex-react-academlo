@@ -9,7 +9,7 @@ export const ContainerPoke = () => {
     page,
     setPage,
     filterTypesPokemon,
-    hadleInputTypePoke
+    hadleInputTypePoke,
   } = useContext(AllPokemonsContext);
 
   const [amount, setAmount] = useState(4);
@@ -49,7 +49,7 @@ export const ContainerPoke = () => {
       <input type="text" onChange={hadleInputChange} />
 
       <select type="select" onChange={hadleInputTypePoke}>
-        <option>Type Pokemon</option>
+        <option>All Types</option>
         {optionTypePoke}
       </select>
 

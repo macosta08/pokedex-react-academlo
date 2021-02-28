@@ -30,6 +30,7 @@ export const LoginScreen = ({ history }) => {
           placeholder="Coach Pokemon"
           name="coach"
           ref={register}
+          required
         />
         <button type="submit">Coach</button>
       </form>

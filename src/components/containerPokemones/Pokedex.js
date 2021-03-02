@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { request } from "../../utils/HttpMethod";
 import { CardPoke } from "./CardPoke";
-
+import './conatinerPoke.css'
 export const Pokedex = () => {
   const [allPokemon, setAllPokemon] = useState([]);
   const [filterPokemon, setFilterPokemon] = useState([]);

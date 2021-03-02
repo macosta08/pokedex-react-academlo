@@ -23,28 +23,34 @@ export const LoginScreen = ({ history }) => {
   };
 
   return (
-    <div className="login login-body">
-      <form autoComplete="off" onSubmit={handleSubmit(handleLogin)}>
-        <div className="title">
-          <InputBase
-            className="title"
-            placeholder="Write your coach name"
-            type="text"
-            name="coach"
-            inputRef={register}
-            required
-            inputProps={{ "aria-label": "search" }}
-          />
-          <hr />
-        </div>
-        <Button type="submit" size="large">
-          <div
-            className="pokeball"
-            style={{ backgroundImage: "url(/img/pokeball.png) " }}
-          ></div>
-        </Button>
-        <h1>Pokédex</h1>
-      </form>
+    <div>
+      <div className="login login-body ">
+        <div
+          className="pokeball-big"
+          style={{ backgroundImage: "url(/img/pokeball-big.png) " }}
+        ></div>
+        <form autoComplete="off" onSubmit={handleSubmit(handleLogin)}>
+          <div className="title">
+            <InputBase
+              className="title"
+              placeholder="Write your coach name"
+              type="text"
+              name="coach"
+              inputRef={register}
+              required
+              inputProps={{ "aria-label": "search" }}
+            />
+            <hr />
+          </div>
+          <Button type="submit" size="large">
+            <div
+              className="pokeball"
+              style={{ backgroundImage: "url(/img/pokeball.png) " }}
+            ></div>
+          </Button>
+          <h1>Pokédex</h1>
+        </form>
+      </div>
     </div>
   );
 };

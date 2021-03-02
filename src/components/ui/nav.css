@@ -1,0 +1,19 @@
+.nav-container {
+  min-width: 100vh;
+
+  background-color: #f8dddd;
+  padding: 0.5em;
+  overflow: hidden;
+}
+
+.right {
+  float: right;
+}
+.left {
+  float: left;
+  margin-left: 10px;
+}
+.name-nav {
+  color: rgb(251, 5, 5);
+  padding-right: 10px;
+}

@@ -3,7 +3,13 @@
 }
 
 .login-body {
-  background-color: #f562d5;
+  background-image: linear-gradient(
+    to right,
+    #ee4c49,
+    #c03330,
+    rgb(214, 72, 29)
+  );
+  background-color: #ef5350;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -12,11 +18,16 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.pokeball-big {
+  width: 322px;
+  height: 322px;
+}
 .pokeball {
   width: 64px;
   height: 64px;
 }
 
 h1 {
-  text-shadow: rgb(144, 142, 142) 0.1em 0.1em 0.2em;
+  text-shadow: rgb(131, 128, 128) 0.1em 0.1em 0.2em;
 }

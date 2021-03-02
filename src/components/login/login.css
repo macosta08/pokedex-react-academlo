@@ -1,0 +1,22 @@
+.login {
+  text-align: center;
+}
+
+.login-body {
+  background-color: #f562d5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.pokeball {
+  width: 64px;
+  height: 64px;
+}
+
+h1 {
+  text-shadow: rgb(144, 142, 142) 0.1em 0.1em 0.2em;
+}

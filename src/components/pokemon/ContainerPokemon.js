@@ -9,6 +9,7 @@ import {
 import { request } from "../../utils/HttpMethod";
 import { NavInfoPoke } from "../ui/NavInfoPoke";
 import { AboutPoke } from "./AboutPoke";
+import { CardPokemon } from "./CardPokemon";
 import { EncountersPoke } from "./EncountersPoke";
 import { StatusPoke } from "./StatusPoke";
 
@@ -35,8 +36,7 @@ export const ContainerPokemon = () => {
   return (
     <>
       <div>
-        <h1>ContainerPokemon</h1>
-
+        <CardPokemon />
         <NavInfoPoke url={url} />
       </div>
       <Switch>

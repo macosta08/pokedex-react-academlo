@@ -10,21 +10,19 @@ export const AppRouter = () => {
   const { user } = useContext(AuthContext);
   return (
     <Router>
-      <div>
-        <Switch>
-          <PublicRouter
-            exact
-            path="/login"
-            component={LoginScreen}
-            isAuthenticated={user.logged}
-          />
-          <PrivateRouter
-            path="/"
-            component={DashboardRoutes}
-            isAuthenticated={user.logged}
-          />
-        </Switch>
-      </div>
+      <Switch>
+        <PublicRouter
+          exact
+          path="/login"
+          component={LoginScreen}
+          isAuthenticated={user.logged}
+        />
+        <PrivateRouter
+          path="/"
+          component={DashboardRoutes}
+          isAuthenticated={user.logged}
+        />
+      </Switch>
     </Router>
   );
 };

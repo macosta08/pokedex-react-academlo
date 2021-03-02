@@ -4,6 +4,7 @@ import { request } from "../../utils/HttpMethod";
 
 export const CardPoke = ({ pokemon }) => {
   const [poke, setPoke] = useState(null);
+
   useEffect(() => {
     const getPoke = async (endpoint = pokemon.url) => {
       const response = await request(endpoint);
@@ -29,7 +30,14 @@ export const CardPoke = ({ pokemon }) => {
           speed: {poke.stats[5].base_stat}
           <div>{poke.name}</div>
           <button>
-            <Link to="/pokedex/pokemon/id/about">Poke</Link>
+            <Link
+              to={{
+                pathname: `/pokedex/pokemon/${poke.id}`,
+                state: { pokemon: poke },
+              }}
+            >
+              Poke
+            </Link>
           </button>
         </div>
       )}

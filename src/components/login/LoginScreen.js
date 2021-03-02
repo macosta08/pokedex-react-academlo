@@ -1,3 +1,4 @@
+import { TextField } from "@material-ui/core";
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../auth/AuthContext";
@@ -24,14 +25,17 @@ export const LoginScreen = ({ history }) => {
     <div>
       <h1>Login</h1>
       <hr />
-      <form onSubmit={handleSubmit(handleLogin)}>
-        <input
+      <form autoComplete="off" onSubmit={handleSubmit(handleLogin)}>
+        <TextField
+          id="standard-basic"
+          label="Masters"
           type="text"
           placeholder="Coach Pokemon"
           name="coach"
-          ref={register}
+          inputRef={register}
           required
         />
+
         <button type="submit">Coach</button>
       </form>
     </div>

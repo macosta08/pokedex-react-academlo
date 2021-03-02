@@ -1,8 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 import { AuthContext } from "./auth/AuthContext";
 import { authReducer } from "./auth/authReducer";
-import AllPokemonsProvider from "./context/AllPokemosContext";
-import FilterPokeProvider from "./context/FilterPokeContext";
 
 import { AppRouter } from "./routers/AppRouter";
 
@@ -18,11 +16,7 @@ const App = () => {
 
   return (
     <AuthContext.Provider value={{ user, dispatch }}>
-      <AllPokemonsProvider>
-        <FilterPokeProvider>
-          <AppRouter />
-        </FilterPokeProvider>
-      </AllPokemonsProvider>
+      <AppRouter />
     </AuthContext.Provider>
   );
 };

@@ -1,18 +1,28 @@
 .container-card {
   border-radius: 8px;
+  background-color: rgba(87, 82, 85, 0.116);
 }
 
 .imgId {
-  color: rgba(70, 66, 66, 0.719);
+  color: rgba(80, 77, 77, 0.719);
   font-size: 200px;
   position: absolute;
-  z-index: 1;
+  z-index: -1;
 }
 
+@media (max-width: 576px) {
+  .imgId {
+    font-size: 80px;
+  }
+}
 img {
   max-width: 400px;
 }
 
-.back-center {
-  background-color: rgba(87, 82, 85, 0.116);
+h5 {
+  padding-top: 20px;
+}
+
+.content-stats {
+  background-color: rgba(177, 84, 101, 0.116);
 }

@@ -1,9 +1,8 @@
-import { Button } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-
 import { request } from "../../utils/HttpMethod";
 import { typePokeBckg } from "../../utils/typePokeBckg";
+import { BaseStats } from "../baseStats/BaseStats";
+import { ButtonPokeball } from "../buttonPokeball/ButtonPokeball";
 import { TypeIconPoke } from "../typeIconPoke/TypeIconPoke";
 import "./cardPoke.css";
 
@@ -32,7 +31,7 @@ export const CardPoke = ({ pokemon }) => {
             className="card position-relative ml2 padd-card"
             style={{
               width: 200,
-              height: 355,
+              minHeight: 355,
               background: `${bckgColor(poke.types[0].type.name)}`,
             }}
           >
@@ -54,88 +53,8 @@ export const CardPoke = ({ pokemon }) => {
 
               <TypeIconPoke types={poke.types} />
 
-              <div className="stats">
-                <div className="d-flex justify-content-between">
-                  <h6 className="card-subtitle mb-2 text-muted">HP:</h6>
-
-                  <div className="progress">
-                    <div
-                      className="progress-bar bg-danger"
-                      role="progressbar"
-                      style={{ width: poke.stats[0].base_stat }}
-                      aria-valuenow="25"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      {poke.stats[0].base_stat}
-                    </div>
-                  </div>
-                </div>
-                <div className="d-flex justify-content-between">
-                  <h6 className="card-subtitle mb-2 text-muted">Atk:</h6>
-                  <div className="progress">
-                    <div
-                      className="progress-bar bg-danger"
-                      role="progressbar"
-                      style={{ width: poke.stats[1].base_stat }}
-                      aria-valuenow="25"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      {poke.stats[1].base_stat}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="d-flex justify-content-between">
-                  <h6 className="card-subtitle mb-2 text-muted">Def:</h6>
-                  <div className="progress">
-                    <div
-                      className="progress-bar bg-danger"
-                      role="progressbar"
-                      style={{ width: poke.stats[2].base_stat }}
-                      aria-valuenow="25"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      {poke.stats[2].base_stat}
-                    </div>
-                  </div>
-                </div>
-                <div className="d-flex justify-content-between">
-                  <h6 className="card-subtitle mb-2 text-muted">Spd:</h6>
-                  <div className="progress">
-                    <div
-                      className="progress-bar bg-danger"
-                      role="progressbar"
-                      style={{ width: poke.stats[5].base_stat }}
-                      aria-valuenow="25"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      {poke.stats[5].base_stat}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="button-center">
-                <Button size="large">
-                  <Link
-                    to={{
-                      pathname: `/pokedex/pokemon/${poke.id}`,
-                      state: poke,
-                    }}
-                  >
-                    <div
-                      className="pokeball pokeball-button"
-                      style={{
-                        backgroundImage: "url(/img/pokeball-card.png) ",
-                      }}
-                    ></div>
-                  </Link>
-                </Button>
-              </div>
+              <BaseStats stats={poke.stats} />
+              <ButtonPokeball poke={poke} />
             </div>
           </div>
         </div>

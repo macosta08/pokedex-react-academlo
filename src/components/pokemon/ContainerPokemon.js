@@ -13,12 +13,12 @@ import { CardPokemon } from "./CardPokemon";
 import { EncountersPoke } from "./EncountersPoke";
 import { StatusPoke } from "./StatusPoke";
 
-export const ContainerPokemon = () => {
+export const ContainerPokemon = ({ history }) => {
   const [infoPoke, setInfoPoke] = useState(null);
   const { id } = useParams();
   const { url, path } = useRouteMatch();
   const location = useLocation();
-  console.log(infoPoke);
+
   useEffect(() => {
     const getPoke = async (
       endpoint = `https://pokeapi.co/api/v2/pokemon/${id}/`
@@ -33,17 +33,29 @@ export const ContainerPokemon = () => {
     }
   }, [location, id]);
 
+  const handleReturn = () => {
+    if (history.length <= 2) {
+      history.push("/");
+    } else {
+      history.goBack();
+    }
+  };
+
   return (
     <>
-      <div>
-        <CardPokemon />
-        <NavInfoPoke url={url} />
-      </div>
-      <Switch>
-        <Route exact path={path} component={AboutPoke} />
-        <Route path={`${path}/status`} component={StatusPoke} />
-        <Route path={`${path}/encounters`} component={EncountersPoke} />
-      </Switch>
+      {infoPoke && (
+        <>
+          <div>
+            <CardPokemon infoPoke={infoPoke} handleReturn={handleReturn} />
+            <NavInfoPoke url={url} />
+          </div>
+          <Switch>
+            <Route exact path={path} component={AboutPoke} />
+            <Route path={`${path}/status`} component={StatusPoke} />
+            <Route path={`${path}/encounters`} component={EncountersPoke} />
+          </Switch>
+        </>
+      )}
     </>
   );
 };

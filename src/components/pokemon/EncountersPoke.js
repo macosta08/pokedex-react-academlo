@@ -3,24 +3,51 @@ import { useParams } from "react-router";
 import { request } from "../../utils/HttpMethod";
 
 export const EncountersPoke = () => {
-  const [infoPoke, setInfoPoke] = useState(null);
+  const [location, setLocation] = useState(null);
+
   const { id } = useParams();
-  console.log(infoPoke);
+
+  const getLocationArea = (locationArea) => {
+    const arrLocArea = locationArea
+      .split("-")
+      .filter((str) => str.toLowerCase() !== "area");
+    return {
+      key: locationArea,
+      region: arrLocArea[0],
+      area: arrLocArea.slice(1, arrLocArea.length).join(" "),
+    };
+  };
+
   useEffect(() => {
-    const getPoke = async (
+    const getEncounters = async (
       endpoint = `https://pokeapi.co/api/v2/pokemon/${id}/encounters`
     ) => {
       const response = await request(endpoint);
-      setInfoPoke(response.data);
-      console.log(response.data);
+      const locArea = response.data.map((loc) =>
+        getLocationArea(loc.location_area.name)
+      );
+
+      setLocation(locArea);
     };
     if (id) {
-      getPoke();
+      getEncounters();
     }
   }, [id]);
+
   return (
     <div>
-      <h1>EncountersPoke</h1>
+      {location && (
+        <div>
+          {location.length > 0 ? "Is found in:" : "Not Found"}
+
+          {location.map((loc) => (
+            <div key={loc.key}>
+              <div>Region: {loc.region}</div>
+              <div>Area: {loc.area}</div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

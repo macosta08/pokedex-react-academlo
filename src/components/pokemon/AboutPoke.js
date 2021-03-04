@@ -7,25 +7,42 @@ export const AboutPoke = () => {
   const { id } = useParams();
 
   const location = useLocation();
-  console.log(infoPoke);
+
   useEffect(() => {
     const getPoke = async (
       endpoint = `https://pokeapi.co/api/v2/pokemon/${id}/`
     ) => {
       const response = await request(endpoint);
       setInfoPoke(response.data);
-      console.log(response.data);
     };
-    if (location.state !== undefined || location.state) {
+    if (location.state) {
       setInfoPoke(location.state);
-      console.log(location.state);
     } else {
       getPoke();
     }
   }, [location, id]);
   return (
     <div>
-      <h1>AboutPoke{id}</h1>
+      {infoPoke && (
+        <div>
+          <h1>{infoPoke.name}</h1>
+          <div>
+            Types:{" "}
+            {infoPoke.types.map((t) => (
+              <div key={t.type.name}>{t.type.name}</div>
+            ))}
+          </div>
+          <div>height: {infoPoke.height}</div>
+          <div>weight: {infoPoke.weight}</div>
+          <div>order: {infoPoke.order}</div>
+          <div>
+            abilities:{" "}
+            {infoPoke.abilities.map((a) => (
+              <div key={a.ability.name}>{a.ability.name}</div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

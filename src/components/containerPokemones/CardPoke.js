@@ -4,18 +4,12 @@ import { Link } from "react-router-dom";
 
 import { request } from "../../utils/HttpMethod";
 import { typePokeBckg } from "../../utils/typePokeBckg";
+import { TypeIconPoke } from "../typeIconPoke/TypeIconPoke";
 import "./cardPoke.css";
 
 export const CardPoke = ({ pokemon }) => {
   const [poke, setPoke] = useState(null);
-  const [typesIcon, setTypesIcon] = useState([]);
   let namePoke = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
-
-  const typeIcon = (type) => {
-    const typeExist = typePokeBckg.hasOwnProperty(type);
-
-    return typeExist ? typePokeBckg[type].bckgIcon : null;
-  };
 
   const bckgColor = (type) => {
     const typeExist = typePokeBckg.hasOwnProperty(type);
@@ -29,13 +23,6 @@ export const CardPoke = ({ pokemon }) => {
     };
     getPoke();
   }, [pokemon]);
-
-  useEffect(() => {
-    if (poke) {
-      const arr = poke.types.map((t) => typeIcon(t.type.name));
-      setTypesIcon(arr);
-    }
-  }, [poke]);
 
   return (
     <div>
@@ -65,20 +52,13 @@ export const CardPoke = ({ pokemon }) => {
             >
               <h3 className="card-title">{namePoke}</h3>
 
-              <div className=" iconType-conten">
-                {typesIcon.map((typeIcon) => (
-                  <div
-                    key={typeIcon}
-                    className=" poke-type-icon"
-                    style={{ backgroundImage: typeIcon }}
-                  ></div>
-                ))}
-              </div>
+              <TypeIconPoke types={poke.types} />
+
               <div className="stats">
                 <div className="d-flex justify-content-between">
                   <h6 className="card-subtitle mb-2 text-muted">HP:</h6>
 
-                  <div class="progress">
+                  <div className="progress">
                     <div
                       className="progress-bar bg-danger"
                       role="progressbar"
@@ -144,7 +124,7 @@ export const CardPoke = ({ pokemon }) => {
                   <Link
                     to={{
                       pathname: `/pokedex/pokemon/${poke.id}`,
-                      state: { pokemon: poke },
+                      state: poke,
                     }}
                   >
                     <div

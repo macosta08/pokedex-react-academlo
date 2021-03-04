@@ -86,7 +86,7 @@ export const Pokedex = () => {
           </div>
         </div>
       </div>
-      <div class="d-flex flex-row-reverse bd-highlight">
+      <div className="d-flex flex-row-reverse bd-highlight">
         <InputType
           hadleInputTypePoke={hadleInputTypePoke}
           filterTypesPokemon={filterTypesPokemon}

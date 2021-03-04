@@ -1,12 +1,13 @@
-import Paper from "@material-ui/core/Paper";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import HomeIcon from "@material-ui/icons/Home";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import red from "@material-ui/core/colors/red";
 import React, { useContext } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthContext";
 import { types } from "../../types/types";
 import "./nav.css";
-import { Button } from "@material-ui/core";
+import { Box, Button } from "@material-ui/core";
 export const Navbar = () => {
   const {
     user: { name },
@@ -24,20 +25,29 @@ export const Navbar = () => {
   };
 
   return (
-    <Paper>
-      <div className="nav-container">
-        <span className="left">
+    <div style={{ width: "100%" }}>
+      <Box display="flex" p={1}>
+        <Box p={1} flexGrow={1}>
           <NavLink exact to="/pokedex">
-            <ArrowBackIcon style={{ fontSize: 30, color: red[600] }} />
+            <Button>
+              <HomeIcon style={{ fontSize: 35, color: red[600] }} />
+            </Button>
           </NavLink>
-        </span>
-        <span className="right">
-          <span className="name-nav">{name}</span>
-          <Button variant="outlined" onClick={handleLogout}>
-            Logout
+        </Box>
+        <Box p={2}>
+          <Button>
+            <span className="name-nav">{name}</span>
           </Button>
-        </span>
-      </div>
-    </Paper>
+        </Box>
+        <Box p={2}>
+          <AccountCircleIcon style={{ fontSize: 35, color: red[600] }} />
+        </Box>
+        <Box p={1}>
+          <Button onClick={handleLogout}>
+            <ExitToAppIcon style={{ fontSize: 35, color: red[600] }} />
+          </Button>
+        </Box>
+      </Box>
+    </div>
   );
 };

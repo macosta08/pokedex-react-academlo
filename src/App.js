@@ -3,7 +3,7 @@ import { AuthContext } from "./auth/AuthContext";
 import { authReducer } from "./auth/authReducer";
 
 import { AppRouter } from "./routers/AppRouter";
-//import "./App.css";
+import "./App.css";
 const init = () => {
   return JSON.parse(localStorage.getItem("user")) || { logged: false };
 };
@@ -16,10 +16,12 @@ const App = () => {
 
   return (
     <AuthContext.Provider value={{ user, dispatch }}>
-      <div className="App">
-        <div className="App-header">
-          <AppRouter />
-        </div>
+      <div className="container d-flex flex-column">
+        <div
+          className="img-big"
+          style={{ backgroundImage: "url(/img/pokeball-mag.png)" }}
+        ></div>
+        <AppRouter />
       </div>
     </AuthContext.Provider>
   );

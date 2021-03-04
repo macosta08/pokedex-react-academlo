@@ -28,6 +28,15 @@
   color: #61dafb;
 }
 
+.img-big {
+  overflow: hidden;
+  position: absolute;
+  float: left;
+  width: 512px;
+  height: 512px;
+  z-index: -2;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

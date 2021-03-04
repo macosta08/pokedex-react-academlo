@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { request } from "../../utils/HttpMethod";
 import { CardPoke } from "./CardPoke";
-import './conatinerPoke.css'
+import "./conatinerPoke.css";
+import CustomizedInputBase from "./InputPokes";
+import { InputType } from "./InputType";
+import { Pagination } from "./Pagination";
 export const Pokedex = () => {
   const [allPokemon, setAllPokemon] = useState([]);
   const [filterPokemon, setFilterPokemon] = useState([]);
@@ -9,7 +12,7 @@ export const Pokedex = () => {
   const [optionTypePoke, setOptionTypePoke] = useState(null);
   const [page, setPage] = useState(1);
 
-  const [amount, setAmount] = useState(4);
+  const [amount] = useState(4);
 
   const getPokes = async (
     endpoint = "https://pokeapi.co/api/v2/pokemon?limit=898"
@@ -45,32 +48,12 @@ export const Pokedex = () => {
   const CardPokemon = filterPokemon
     .slice((page - 1) * amount, page * amount)
     .map((pokemon) => (
-      <div key={pokemon.name}>
+      <div className="col" key={pokemon.name}>
         <CardPoke pokemon={pokemon} />
       </div>
     ));
 
   const pagesAmount = Math.ceil(filterPokemon.length / amount);
-
-  const arrPages = (pagesAmount) => {
-    let arr = [];
-    for (let index = 0; index < pagesAmount; index++) {
-      arr.push(index + 1);
-    }
-    return arr;
-  };
-
-  const pages = arrPages(pagesAmount)
-    .slice(page > 5 ? page - 5 : 0, page > 5 ? page + 5 : 10)
-    .map((e) => (
-      <button key={e} onClick={() => setPage(e)}>
-        {e}
-      </button>
-    ));
-
-  const optionTypes = filterTypesPokemon.map((type) => (
-    <option key={type.name}>{type.name}</option>
-  ));
 
   const hadleInputChange = ({ target }) => {
     const textSearch = target.value;
@@ -87,21 +70,36 @@ export const Pokedex = () => {
     const type = e.target.value;
     const urlTypePoke = filterTypesPokemon.find((t) => t.name === type);
     setOptionTypePoke(urlTypePoke);
-    console.log(urlTypePoke);
+    setPage(1);
   };
 
   return (
-    <div>
-      <input type="text" onChange={hadleInputChange} />
+    <div className="container">
+      <div className="d-inline-flex p-2 bd-highlight">
+        <div className="title-text">
+          <h1>Pokémon</h1>
 
-      <select type="select" onChange={hadleInputTypePoke}>
-        <option>All Types</option>
-        {optionTypes}
-      </select>
+          <p>Search for your Pokémon by name or by type</p>
 
-      <p>page:{page}</p>
-      {pages.length > 0 && pages}
-      <div>{CardPokemon}</div>
+          <div className="input-name">
+            <CustomizedInputBase hadleInputChange={hadleInputChange} />
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-row-reverse bd-highlight">
+        <InputType
+          hadleInputTypePoke={hadleInputTypePoke}
+          filterTypesPokemon={filterTypesPokemon}
+        />
+      </div>
+
+      <div className="container paddCont">
+        <div className="row">{CardPokemon}</div>
+      </div>
+
+      <hr />
+
+      <Pagination page={page} pagesAmount={pagesAmount} setPage={setPage} />
     </div>
   );
 };

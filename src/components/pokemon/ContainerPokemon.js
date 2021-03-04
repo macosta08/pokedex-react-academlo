@@ -18,7 +18,7 @@ export const ContainerPokemon = () => {
   const { id } = useParams();
   const { url, path } = useRouteMatch();
   const location = useLocation();
-
+  console.log(infoPoke);
   useEffect(() => {
     const getPoke = async (
       endpoint = `https://pokeapi.co/api/v2/pokemon/${id}/`

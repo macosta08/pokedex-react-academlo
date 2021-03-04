@@ -7,16 +7,18 @@ export const AboutPoke = () => {
   const { id } = useParams();
 
   const location = useLocation();
-
+  console.log(infoPoke);
   useEffect(() => {
     const getPoke = async (
       endpoint = `https://pokeapi.co/api/v2/pokemon/${id}/`
     ) => {
       const response = await request(endpoint);
       setInfoPoke(response.data);
+      console.log(response.data);
     };
     if (location.state !== undefined || location.state) {
       setInfoPoke(location.state);
+      console.log(location.state);
     } else {
       getPoke();
     }

@@ -1,0 +1,49 @@
+img {
+  width: 65%;
+}
+
+.pokemon-snap {
+  position: absolute;
+  width: 300px;
+  top: -90px;
+  z-index: 3;
+}
+
+.padd-card {
+  padding: 50px 0px;
+}
+h3 {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding-top: 30px;
+  text-shadow: rgb(194, 190, 190) 0.1em 0.1em 0.2em;
+}
+h6 {
+  color: white;
+}
+
+.pokeball {
+  width: 64px;
+  height: 64px;
+}
+
+.button-center {
+  display: flex;
+  justify-content: center;
+}
+.stats {
+  margin-top: 20px;
+}
+.iconType-conten {
+  display: flex;
+  justify-content: center;
+}
+
+.poke-type-icon {
+  height: 50px;
+  width: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}

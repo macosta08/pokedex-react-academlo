@@ -1,0 +1,18 @@
+.container-card {
+  border-radius: 8px;
+}
+
+.imgId {
+  color: rgba(70, 66, 66, 0.719);
+  font-size: 200px;
+  position: absolute;
+  z-index: 1;
+}
+
+img {
+  max-width: 400px;
+}
+
+.back-center {
+  background-color: rgba(87, 82, 85, 0.116);
+}

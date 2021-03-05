@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ScrollableTabsButtonAuto({ infoPoke }) {
+export default function NavInfoPoke({ infoPoke }) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -64,7 +64,7 @@ export default function ScrollableTabsButtonAuto({ infoPoke }) {
         <Tabs
           value={value}
           onChange={handleChange}
-          indicatorColor="primary"
+          indicatorColor="secondary"
           textColor="primary"
           variant="scrollable"
           scrollButtons="auto"

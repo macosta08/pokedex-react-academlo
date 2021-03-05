@@ -16,11 +16,15 @@ const App = () => {
 
   return (
     <AuthContext.Provider value={{ user, dispatch }}>
-      <div className="container d-flex flex-column">
-        <div
-          className="img-big"
-          style={{ backgroundImage: "url(/img/pokeball-mag.png)" }}
-        ></div>
+      <div className=" App-header">
+        <div class="position-relative">
+          <div class="position-absolute top-0 start-0">
+            <div
+              className="img-big"
+              style={{ backgroundImage: "url(/img/pokeball-mag.png)" }}
+            ></div>
+          </div>
+        </div>
         <AppRouter />
       </div>
     </AuthContext.Provider>

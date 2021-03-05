@@ -24,10 +24,6 @@ export const LoginScreen = ({ history }) => {
 
   return (
     <div className="login login-body ">
-      <div
-        className="pokeball-big"
-        style={{ backgroundImage: "url(/img/pokeball-big.png)" }}
-      ></div>
       <form autoComplete="off" onSubmit={handleSubmit(handleLogin)}>
         <InputBase
           className="title"

@@ -6,23 +6,20 @@
   background-image: linear-gradient(
     to right,
     #ee4c49,
-    #c03330,
+    #992727,
     rgb(214, 72, 29)
   );
   background-color: #ef5350;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.pokeball-big {
-  width: 322px;
-  height: 322px;
-}
 .pokeball {
   width: 64px;
   height: 64px;

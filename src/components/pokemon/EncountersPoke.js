@@ -65,12 +65,12 @@ export const EncountersPoke = ({ history }) => {
     if (history.length <= 2) {
       history.push("/");
     } else {
-      history.goBack(); 
+      history.goBack();
     }
   };
 
   return (
-    <div>
+    <div className="container">
       <div class="d-flex flex-row bd-highlight mb-3">
         <div class="p-2 bd-highlight">
           <Button onClick={handleReturn}>

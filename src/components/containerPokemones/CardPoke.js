@@ -3,6 +3,7 @@ import { request } from "../../utils/HttpMethod";
 import { typePokeBckg } from "../../utils/typePokeBckg";
 import { BaseStats } from "../baseStats/BaseStats";
 import { ButtonPokeball } from "../buttonPokeball/ButtonPokeball";
+import { Spinner } from "../spinner/Spinner";
 import { TypeIconPoke } from "../typeIconPoke/TypeIconPoke";
 import "./cardPoke.css";
 
@@ -25,13 +26,13 @@ export const CardPoke = ({ pokemon }) => {
 
   return (
     <div>
-      {poke && (
-        <div className="padd-card align-middle">
+      <div className="padd-card align-middle animate__animated animate__fadeIn">
+        {!poke && <Spinner />}
+        {poke && (
           <div
-            className="card position-relative ml2 padd-card"
+            className="card ml2 padd-card"
             style={{
               width: 200,
-              minHeight: 355,
               background: `${bckgColor(poke.types[0].type.name)}`,
             }}
           >
@@ -43,10 +44,10 @@ export const CardPoke = ({ pokemon }) => {
               />
             </div>
             <div
-              className="card-body position-absolute"
+              className="card-body"
               style={{
                 width: 198,
-                height: 280,
+                height: 200,
               }}
             >
               <h3 className="card-title">{namePoke}</h3>
@@ -57,8 +58,8 @@ export const CardPoke = ({ pokemon }) => {
               <ButtonPokeball poke={poke} />
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

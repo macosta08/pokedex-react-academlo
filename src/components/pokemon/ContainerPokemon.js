@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router";
 import { request } from "../../utils/HttpMethod";
-import ScrollableTabsButtonAuto from "../ui/NavInfoPoke";
+import { Spinner } from "../spinner/Spinner";
+import NavInfoPoke from "../ui/NavInfoPoke";
 import { CardPokemon } from "./CardPokemon";
 
 export const ContainerPokemon = () => {
@@ -26,11 +27,12 @@ export const ContainerPokemon = () => {
 
   return (
     <>
+      {!infoPoke && <Spinner />}
       {infoPoke && (
-        <div>
+        <div className="container">
           <CardPokemon id={id} infoPoke={infoPoke} />
 
-          <ScrollableTabsButtonAuto infoPoke={infoPoke} />
+          <NavInfoPoke infoPoke={infoPoke} />
         </div>
       )}
     </>

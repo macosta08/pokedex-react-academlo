@@ -11,7 +11,7 @@ import { NavInfoPoke } from "../ui/NavInfoPoke";
 import { AboutPoke } from "./AboutPoke";
 import { CardPokemon } from "./CardPokemon";
 import { EncountersPoke } from "./EncountersPoke";
-import { StatusPoke } from "./StatusPoke";
+import { MovesPoke } from "./MovesPoke";
 
 export const ContainerPokemon = ({ history }) => {
   const [infoPoke, setInfoPoke] = useState(null);
@@ -33,25 +33,17 @@ export const ContainerPokemon = ({ history }) => {
     }
   }, [location, id]);
 
-  const handleReturn = () => {
-    if (history.length <= 2) {
-      history.push("/");
-    } else {
-      history.goBack();
-    }
-  };
-
   return (
     <>
       {infoPoke && (
         <>
           <div>
-            <CardPokemon infoPoke={infoPoke} handleReturn={handleReturn} />
+            <CardPokemon infoPoke={infoPoke} />
             <NavInfoPoke url={url} />
           </div>
           <Switch>
             <Route exact path={path} component={AboutPoke} />
-            <Route path={`${path}/status`} component={StatusPoke} />
+            <Route path={`${path}/moves`} component={MovesPoke} />
             <Route path={`${path}/encounters`} component={EncountersPoke} />
           </Switch>
         </>

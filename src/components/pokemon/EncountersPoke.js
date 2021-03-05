@@ -1,7 +1,8 @@
+import { Chip } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { request } from "../../utils/HttpMethod";
-
+import LocationOnIcon from "@material-ui/icons/LocationOn";
 export const EncountersPoke = () => {
   const [location, setLocation] = useState(null);
 
@@ -35,17 +36,29 @@ export const EncountersPoke = () => {
   }, [id]);
 
   return (
-    <div>
+    <div style={{ background: "#424242" }}>
       {location && (
-        <div>
-          {location.length > 0 ? "Is found in:" : "Not Found"}
+        <div className="d-flex justify-content-center">
+          {location.length > 0 ? (
+            <div className="card border-light mx-3 my-3">
+              <h5 class=" card-header card-title">Location</h5>
 
-          {location.map((loc) => (
-            <div key={loc.key}>
-              <div>Region: {loc.region}</div>
-              <div>Area: {loc.area}</div>
+              <div className="card-body">
+                {location.map((loc) => (
+                  <Chip
+                    icon={<LocationOnIcon />}
+                    key={loc.key}
+                    label={`Region: ${loc.region}   Area: ${loc.area}`}
+                    style={{ color: "#fafafa", background: "#e57373" }}
+                  />
+                ))}
+              </div>
             </div>
-          ))}
+          ) : (
+            <div class="alert alert-dark mt-3" role="alert">
+              Not Found!!!
+            </div>
+          )}
         </div>
       )}
     </div>

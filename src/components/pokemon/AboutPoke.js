@@ -1,7 +1,12 @@
+import { Chip } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router";
 import { request } from "../../utils/HttpMethod";
-
+import CategoryIcon from "@material-ui/icons/Category";
+import HeightIcon from "@material-ui/icons/Height";
+import FitnessCenterIcon from "@material-ui/icons/FitnessCenter";
+import LabelImportantIcon from "@material-ui/icons/LabelImportant";
+import GradeIcon from "@material-ui/icons/Grade";
 export const AboutPoke = () => {
   const [infoPoke, setInfoPoke] = useState(null);
   const { id } = useParams();
@@ -24,22 +29,84 @@ export const AboutPoke = () => {
   return (
     <div>
       {infoPoke && (
-        <div>
-          <h1>{infoPoke.name}</h1>
-          <div>
-            Types:{" "}
-            {infoPoke.types.map((t) => (
-              <div key={t.type.name}>{t.type.name}</div>
-            ))}
-          </div>
-          <div>height: {infoPoke.height}</div>
-          <div>weight: {infoPoke.weight}</div>
-          <div>order: {infoPoke.order}</div>
-          <div>
-            abilities:{" "}
-            {infoPoke.abilities.map((a) => (
-              <div key={a.ability.name}>{a.ability.name}</div>
-            ))}
+        <div style={{ background: "#424242" }}>
+          <div className="d-flex justify-content-center">
+            <div
+              className="card border-light mx-3 my-3"
+              style={{ maxWidth: 288 }}
+            >
+              <h5 class=" card-header card-title">Types</h5>
+
+              <div className="card-body">
+                {infoPoke.types.map((t) => (
+                  <Chip
+                    icon={<CategoryIcon />}
+                    key={t.type.name}
+                    label={t.type.name}
+                    style={{ color: "#fafafa", background: "#e57373" }}
+                  />
+                ))}
+              </div>
+            </div>
+            <div
+              className="card border-light mx-3 my-3"
+              style={{ maxWidth: 288 }}
+            >
+              <h5 class=" card-header card-title">Height</h5>
+
+              <div className="card-body">
+                <Chip
+                  icon={<HeightIcon />}
+                  label={infoPoke.height}
+                  style={{ color: "#fafafa", background: "#e57373" }}
+                />
+              </div>
+            </div>
+            <div
+              className="card border-light mx-3 my-3"
+              style={{ maxWidth: 288 }}
+            >
+              <h5 class=" card-header card-title">Weight</h5>
+
+              <div className="card-body">
+                <Chip
+                  icon={<FitnessCenterIcon />}
+                  label={infoPoke.weight}
+                  style={{ color: "#fafafa", background: "#e57373" }}
+                />
+              </div>
+            </div>
+            <div
+              className="card border-light mx-3 my-3"
+              style={{ maxWidth: 288 }}
+            >
+              <h5 class=" card-header card-title">Order</h5>
+
+              <div className="card-body">
+                <Chip
+                  icon={<LabelImportantIcon />}
+                  label={infoPoke.order}
+                  style={{ color: "#fafafa", background: "#e57373" }}
+                />
+              </div>
+            </div>
+            <div
+              className="card border-light mx-3 my-3"
+              style={{ maxWidth: 288 }}
+            >
+              <h5 class=" card-header card-title">Abilities</h5>
+
+              <div className="card-body">
+                {infoPoke.abilities.map((a) => (
+                  <Chip
+                    icon={<GradeIcon />}
+                    key={a.ability.name}
+                    label={a.ability.name}
+                    style={{ color: "#fafafa", background: "#e57373" }}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       )}

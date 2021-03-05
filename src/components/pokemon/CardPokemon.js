@@ -1,11 +1,9 @@
 import React from "react";
 import { BaseStats } from "../baseStats/BaseStats";
 import { TypeIconPoke } from "../typeIconPoke/TypeIconPoke";
-import { Button } from "@material-ui/core";
-import "../buttonPokeball/buttonPokeball.css";
 import "./cardPokemon.css";
 
-export const CardPokemon = ({ infoPoke, handleReturn }) => {
+export const CardPokemon = ({ infoPoke }) => {
   let namePoke = infoPoke.name.charAt(0).toUpperCase() + infoPoke.name.slice(1);
   return (
     <>
@@ -30,18 +28,6 @@ export const CardPokemon = ({ infoPoke, handleReturn }) => {
             <h5>Base Stats</h5>
             <hr />
             <BaseStats stats={infoPoke.stats} />
-            <br />
-
-            <div className="d-flex justify-content-center">
-              <Button size="large" onClick={handleReturn}>
-                <div
-                  className="pokeball pokeball-button"
-                  style={{
-                    backgroundImage: "url(/img/pokeball-card.png) ",
-                  }}
-                ></div>
-              </Button>
-            </div>
           </div>
         </div>
       )}

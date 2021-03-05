@@ -1,12 +1,23 @@
+import { Paper, Tab, Tabs } from "@material-ui/core";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
 export const NavInfoPoke = ({ url }) => {
   return (
     <nav>
-      <NavLink to={`${url}`}>About</NavLink>
-      <NavLink to={`${url}/status`}>Status</NavLink>
-      <NavLink to={`${url}/encounters`}>Encounters</NavLink>
+      <Paper>
+        <Tabs indicatorColor="primary" textColor="primary" centered>
+          <NavLink to={`${url}`}>
+            <Tab label="About" />
+          </NavLink>
+          <NavLink to={`${url}/moves`}>
+            <Tab label="Moves" />
+          </NavLink>
+          <NavLink to={`${url}/encounters`}>
+            <Tab label="Encounters" />
+          </NavLink>
+        </Tabs>
+      </Paper>
     </nav>
   );
 };

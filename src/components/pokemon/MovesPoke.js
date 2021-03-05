@@ -34,7 +34,11 @@ export const MovesPoke = () => {
                   icon={<CheckCircleIcon />}
                   key={m.move.name}
                   label={m.move.name}
-                  style={{ color: "#fafafa", background: "#e57373" }}
+                  style={{
+                    color: "#fafafa",
+                    background: "#e53935",
+                    margin: 3,
+                  }}
                 />
               ))}
             </div>

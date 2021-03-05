@@ -1,9 +1,11 @@
+import { Button } from "@material-ui/core";
 import React from "react";
+import { Link } from "react-router-dom";
 import { BaseStats } from "../baseStats/BaseStats";
 import { TypeIconPoke } from "../typeIconPoke/TypeIconPoke";
 import "./cardPokemon.css";
 
-export const CardPokemon = ({ infoPoke }) => {
+export const CardPokemon = ({ id, infoPoke }) => {
   let namePoke = infoPoke.name.charAt(0).toUpperCase() + infoPoke.name.slice(1);
   return (
     <>
@@ -28,6 +30,17 @@ export const CardPokemon = ({ infoPoke }) => {
             <h5>Base Stats</h5>
             <hr />
             <BaseStats stats={infoPoke.stats} />
+            <hr />
+            <Button>
+              <Link
+                to={{
+                  pathname: `/pokedex/pokemon/${id}/encounters`,
+                  state: infoPoke,
+                }}
+              >
+                Localite
+              </Link>
+            </Button>
           </div>
         </div>
       )}

@@ -1,22 +1,13 @@
 import React, { useEffect, useState } from "react";
-import {
-  Route,
-  Switch,
-  useLocation,
-  useParams,
-  useRouteMatch,
-} from "react-router";
+import { useLocation, useParams } from "react-router";
 import { request } from "../../utils/HttpMethod";
-import { NavInfoPoke } from "../ui/NavInfoPoke";
-import { AboutPoke } from "./AboutPoke";
+import ScrollableTabsButtonAuto from "../ui/NavInfoPoke";
 import { CardPokemon } from "./CardPokemon";
-import { EncountersPoke } from "./EncountersPoke";
-import { MovesPoke } from "./MovesPoke";
 
-export const ContainerPokemon = ({ history }) => {
+export const ContainerPokemon = () => {
   const [infoPoke, setInfoPoke] = useState(null);
   const { id } = useParams();
-  const { url, path } = useRouteMatch();
+
   const location = useLocation();
 
   useEffect(() => {
@@ -36,17 +27,11 @@ export const ContainerPokemon = ({ history }) => {
   return (
     <>
       {infoPoke && (
-        <>
-          <div>
-            <CardPokemon infoPoke={infoPoke} />
-            <NavInfoPoke url={url} />
-          </div>
-          <Switch>
-            <Route exact path={path} component={AboutPoke} />
-            <Route path={`${path}/moves`} component={MovesPoke} />
-            <Route path={`${path}/encounters`} component={EncountersPoke} />
-          </Switch>
-        </>
+        <div>
+          <CardPokemon id={id} infoPoke={infoPoke} />
+
+          <ScrollableTabsButtonAuto infoPoke={infoPoke} />
+        </div>
       )}
     </>
   );

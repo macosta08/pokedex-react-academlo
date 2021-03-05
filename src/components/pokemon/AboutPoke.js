@@ -43,7 +43,11 @@ export const AboutPoke = () => {
                     icon={<CategoryIcon />}
                     key={t.type.name}
                     label={t.type.name}
-                    style={{ color: "#fafafa", background: "#e57373" }}
+                    style={{
+                      color: "#fafafa",
+                      background: "#e53935",
+                      margin: 3,
+                    }}
                   />
                 ))}
               </div>
@@ -54,7 +58,7 @@ export const AboutPoke = () => {
                 <Chip
                   icon={<HeightIcon />}
                   label={infoPoke.height}
-                  style={{ color: "#fafafa", background: "#e57373" }}
+                  style={{ color: "#fafafa", background: "#e53935" }}
                 />
               </div>
 
@@ -64,7 +68,7 @@ export const AboutPoke = () => {
                 <Chip
                   icon={<FitnessCenterIcon />}
                   label={infoPoke.weight}
-                  style={{ color: "#fafafa", background: "#e57373" }}
+                  style={{ color: "#fafafa", background: "#e53935" }}
                 />
               </div>
 
@@ -74,7 +78,7 @@ export const AboutPoke = () => {
                 <Chip
                   icon={<LabelImportantIcon />}
                   label={infoPoke.order}
-                  style={{ color: "#fafafa", background: "#e57373" }}
+                  style={{ color: "#fafafa", background: "#e53935" }}
                 />
               </div>
 
@@ -86,7 +90,11 @@ export const AboutPoke = () => {
                     icon={<GradeIcon />}
                     key={a.ability.name}
                     label={a.ability.name}
-                    style={{ color: "#fafafa", background: "#e57373" }}
+                    style={{
+                      color: "#fafafa",
+                      background: "#e53935",
+                      margin: 3,
+                    }}
                   />
                 ))}
               </div>

@@ -35,7 +35,7 @@ export const AboutPoke = () => {
               className="card border-light mx-3 my-3"
               style={{ maxWidth: 288 }}
             >
-              <h5 class=" card-header card-title">Types</h5>
+              <h5 className=" card-header card-title">Types</h5>
 
               <div className="card-body">
                 {infoPoke.types.map((t) => (
@@ -47,12 +47,8 @@ export const AboutPoke = () => {
                   />
                 ))}
               </div>
-            </div>
-            <div
-              className="card border-light mx-3 my-3"
-              style={{ maxWidth: 288 }}
-            >
-              <h5 class=" card-header card-title">Height</h5>
+
+              <h5 className=" card-header card-title">Height</h5>
 
               <div className="card-body">
                 <Chip
@@ -61,12 +57,8 @@ export const AboutPoke = () => {
                   style={{ color: "#fafafa", background: "#e57373" }}
                 />
               </div>
-            </div>
-            <div
-              className="card border-light mx-3 my-3"
-              style={{ maxWidth: 288 }}
-            >
-              <h5 class=" card-header card-title">Weight</h5>
+
+              <h5 className=" card-header card-title">Weight</h5>
 
               <div className="card-body">
                 <Chip
@@ -75,12 +67,8 @@ export const AboutPoke = () => {
                   style={{ color: "#fafafa", background: "#e57373" }}
                 />
               </div>
-            </div>
-            <div
-              className="card border-light mx-3 my-3"
-              style={{ maxWidth: 288 }}
-            >
-              <h5 class=" card-header card-title">Order</h5>
+
+              <h5 className=" card-header card-title">Order</h5>
 
               <div className="card-body">
                 <Chip
@@ -89,12 +77,8 @@ export const AboutPoke = () => {
                   style={{ color: "#fafafa", background: "#e57373" }}
                 />
               </div>
-            </div>
-            <div
-              className="card border-light mx-3 my-3"
-              style={{ maxWidth: 288 }}
-            >
-              <h5 class=" card-header card-title">Abilities</h5>
+
+              <h5 className=" card-header card-title">Abilities</h5>
 
               <div className="card-body">
                 {infoPoke.abilities.map((a) => (

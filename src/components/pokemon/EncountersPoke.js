@@ -3,9 +3,10 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router";
 import { request } from "../../utils/HttpMethod";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
-import { Spinner } from "../spinner/Spinner";
+
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import red from "@material-ui/core/colors/red";
+import { Spinner } from "../spinner/Spinner";
 export const EncountersPoke = ({ history }) => {
   const [location, setLocation] = useState(null);
   const [infoPoke, setInfoPoke] = useState(null);

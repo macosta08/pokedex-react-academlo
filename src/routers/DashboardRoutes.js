@@ -12,7 +12,7 @@ export const DashboardRoutes = () => {
       <Switch>
         <Route exact path="/pokedex" component={Pokedex} />
 
-        <Route path="/pokedex/pokemon/:id" component={ContainerPokemon} />
+        <Route exact path="/pokedex/pokemon/:id" component={ContainerPokemon} />
 
         <Route
           exact

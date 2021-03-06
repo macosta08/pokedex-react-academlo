@@ -20,7 +20,7 @@ export const DashboardRoutes = () => {
           component={EncountersPoke}
         />
 
-        <Redirect to="/login" />
+        <Redirect to="/pokedex" />
       </Switch>
     </>
   );

@@ -6,7 +6,6 @@ export const PublicRouter = ({
   component: Component,
   ...rest
 }) => {
-  console.log("public", Component);
   return (
     <Route
       {...rest}

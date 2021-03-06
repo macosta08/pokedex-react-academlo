@@ -1,8 +1,8 @@
-import { Button } from "@material-ui/core";
 import React from "react";
 import { Link } from "react-router-dom";
 import { BaseStats } from "../baseStats/BaseStats";
 import { TypeIconPoke } from "../typeIconPoke/TypeIconPoke";
+import { Button } from "@material-ui/core";
 import "./cardPokemon.css";
 
 export const CardPokemon = ({ id, infoPoke }) => {

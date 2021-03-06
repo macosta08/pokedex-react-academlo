@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { request } from "../../utils/HttpMethod";
 import { CardPoke } from "./CardPoke";
-import "./conatinerPoke.css";
 import CustomizedInputBase from "./InputPokes";
 import { InputType } from "./InputType";
 import { Pagination } from "./Pagination";
+import "./conatinerPoke.css";
 export const Pokedex = () => {
   const [allPokemon, setAllPokemon] = useState([]);
   const [filterPokemon, setFilterPokemon] = useState([]);
@@ -78,7 +78,7 @@ export const Pokedex = () => {
       <div className="d-flex flex-row bd-highlight mb-3">
         <div className="p-2 bd-highlight">
           <div className="title-text">
-            <h1>Pokémon</h1>
+            <h1>Pokemon</h1>
 
             <p>Search for your Pokémon by name or by type</p>
 

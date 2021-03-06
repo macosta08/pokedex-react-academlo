@@ -1,3 +1,4 @@
+import { Tooltip } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { typePokeBckg } from "../../utils/typePokeBckg";
 import "./typeIconPoke.css";
@@ -7,7 +8,7 @@ export const TypeIconPoke = ({ types }) => {
   const typeIcon = (type) => {
     const typeExist = typePokeBckg.hasOwnProperty(type);
 
-    return typeExist ? typePokeBckg[type].bckgIcon : null;
+    return typeExist ? { icon: typePokeBckg[type].bckgIcon, type } : null;
   };
 
   useEffect(() => {
@@ -19,11 +20,12 @@ export const TypeIconPoke = ({ types }) => {
   return (
     <div className=" iconType-conten">
       {typesIcon.map((typeIcon) => (
-        <div
-          key={typeIcon}
-          className=" poke-type-icon"
-          style={{ backgroundImage: typeIcon }}
-        ></div>
+        <Tooltip title={typeIcon.type} key={typeIcon.icon}>
+          <div
+            className=" poke-type-icon"
+            style={{ backgroundImage: typeIcon.icon }}
+          ></div>
+        </Tooltip>
       ))}
     </div>
   );

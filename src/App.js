@@ -17,8 +17,8 @@ const App = () => {
   return (
     <AuthContext.Provider value={{ user, dispatch }}>
       <div className=" App-header">
-        <div class="position-relative">
-          <div class="position-absolute top-0 start-0">
+        <div className="position-relative">
+          <div className="position-absolute top-0 start-0">
             <div
               className="img-big"
               style={{ backgroundImage: "url(/img/pokeball-mag.png)" }}

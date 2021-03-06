@@ -72,8 +72,8 @@ export const EncountersPoke = ({ history }) => {
 
   return (
     <div className="container">
-      <div class="d-flex flex-row bd-highlight mb-3">
-        <div class="p-2 bd-highlight">
+      <div className="d-flex flex-row bd-highlight mb-3">
+        <div className="p-2 bd-highlight">
           <Button onClick={handleReturn}>
             <ArrowBackIcon style={{ fontSize: 35, color: red[600] }} />
           </Button>

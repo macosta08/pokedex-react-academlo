@@ -75,8 +75,8 @@ export const Pokedex = () => {
 
   return (
     <div className="container">
-      <div class="d-flex flex-row bd-highlight mb-3">
-        <div class="p-2 bd-highlight">
+      <div className="d-flex flex-row bd-highlight mb-3">
+        <div className="p-2 bd-highlight">
           <div className="title-text">
             <h1>Pokémon</h1>
 

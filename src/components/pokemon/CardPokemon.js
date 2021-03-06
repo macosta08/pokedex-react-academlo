@@ -11,12 +11,17 @@ export const CardPokemon = ({ id, infoPoke }) => {
     <>
       {infoPoke && (
         <div className="d-flex  bd-highlight container-card">
-          <div className="p-2 flex-fill bd-highlight">
-            <div className="d-flex justify-content-between">
-              <div className="imgId">#{infoPoke.id}</div>
+          <div class="p-2 flex-fill bd-highlight">
+            <div className="imgId">#{infoPoke.id}</div>
+          </div>
+          <div className="d-flex align-items-start flex-column bd-highlight mb-3">
+            <div className="mb-auto p-2 bd-highlight">
               <h1>{namePoke}</h1>
+            </div>
 
+            <div className="p-2 bd-highlight">
               <img
+                style={{ width: 250 }}
                 src={infoPoke.sprites.other["official-artwork"].front_default}
                 alt={infoPoke.name}
               />
@@ -38,7 +43,7 @@ export const CardPokemon = ({ id, infoPoke }) => {
                   state: infoPoke,
                 }}
               >
-                Localite
+                Location area encounters
               </Link>
             </Button>
           </div>

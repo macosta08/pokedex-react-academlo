@@ -38,6 +38,7 @@ export const CardPoke = ({ pokemon }) => {
           >
             <div className="pokemon-snap">
               <img
+                style={{ width: 180 }}
                 className="img-pok"
                 src={poke.sprites.other["official-artwork"].front_default}
                 alt={poke.name}

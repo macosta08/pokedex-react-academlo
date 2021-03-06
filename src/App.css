@@ -19,3 +19,10 @@
   height: 512px;
   z-index: -2;
 }
+
+@media (max-width: 576px) {
+  .img-big {
+    width: 64px;
+    height: 64px;
+  }
+}

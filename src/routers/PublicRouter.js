@@ -6,11 +6,12 @@ export const PublicRouter = ({
   component: Component,
   ...rest
 }) => {
+  console.log("public", Component);
   return (
     <Route
       {...rest}
       component={(props) =>
-        !isAuthenticated ? <Component {...props} /> : <Redirect to="/pokedex" />
+        !isAuthenticated ? <Component {...props} /> : <Redirect to="/" />
       }
     />
   );

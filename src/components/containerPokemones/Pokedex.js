@@ -4,8 +4,8 @@ import { CardPoke } from "./CardPoke";
 import CustomizedInputBase from "./InputPokes";
 import { InputType } from "./InputType";
 import { Pagination } from "./Pagination";
-import "./conatinerPoke.css";
 import { InputAmountPoke } from "./InputAmountPoke";
+import "./conatinerPoke.css";
 export const Pokedex = () => {
   const [allPokemon, setAllPokemon] = useState([]);
   const [filterPokemon, setFilterPokemon] = useState([]);

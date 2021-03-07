@@ -5,22 +5,18 @@
 
 .imgId {
   color: rgba(17, 15, 15, 0.719);
-  font-size: 200px;
+  font-size: 125px;
+  padding-top: 20px;
   position: absolute;
   z-index: -1;
 }
 
 @media (max-width: 360px) {
   .imgId {
-    font-size: 90px;
+    font-size: 40px;
   }
 }
 
-
 h5 {
   padding-top: 20px;
-}
-
-.content-stats {
-  background-color: rgba(177, 84, 101, 0.116);
 }

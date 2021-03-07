@@ -10,24 +10,23 @@ export const CardPokemon = ({ id, infoPoke }) => {
   return (
     <>
       {infoPoke && (
-        <div className="d-flex  bd-highlight container-card">
-          <div class="p-2 flex-fill bd-highlight">
+        <div className="d-flex align-content-start flex-wrap container-card">
+          <div className="p-2 bd-highlight">
             <div className="imgId">#{infoPoke.id}</div>
           </div>
-          <div className="d-flex align-items-start flex-column bd-highlight mb-3">
-            <div className="mb-auto p-2 bd-highlight">
-              <h1>{namePoke}</h1>
-            </div>
-
-            <div className="p-2 bd-highlight">
-              <img
-                style={{ width: 250 }}
-                src={infoPoke.sprites.other["official-artwork"].front_default}
-                alt={infoPoke.name}
-              />
-            </div>
+          <div className="p-2 flex-fill bd-highlight">
+            <h1>{namePoke}</h1>
           </div>
-          <div className="p-2 flex-fill bd-highlight content-stats">
+
+          <div className="p-2 flex-fill bd-highlight">
+            <img
+              style={{ width: 400 }}
+              src={infoPoke.sprites.other["official-artwork"].front_default}
+              alt={infoPoke.name}
+            />
+          </div>
+
+          <div className="p-2 flex-fill bd-highlight">
             <h5>Types</h5>
             <hr />
             <TypeIconPoke types={infoPoke.types} />

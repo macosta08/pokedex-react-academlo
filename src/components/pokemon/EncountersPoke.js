@@ -7,10 +7,15 @@ import LocationOnIcon from "@material-ui/icons/LocationOn";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import red from "@material-ui/core/colors/red";
 import { Spinner } from "../spinner/Spinner";
+import { Pagination } from "../containerPokemones/Pagination";
 export const EncountersPoke = ({ history }) => {
   const [location, setLocation] = useState(null);
   const [infoPoke, setInfoPoke] = useState(null);
   const [pokeName, setPokeName] = useState(null);
+  const [page, setPage] = useState(1);
+  const [pagesAmount, setPagesAmount] = useState(null);
+
+  const amount = 8;
 
   const { id } = useParams();
 
@@ -56,6 +61,7 @@ export const EncountersPoke = ({ history }) => {
       );
 
       setLocation(locArea);
+      setPagesAmount(Math.ceil(locArea.length / amount));
     };
     if (id) {
       getEncounters();
@@ -97,19 +103,27 @@ export const EncountersPoke = ({ history }) => {
                 <h5 className=" card-header card-title">Location</h5>
 
                 <div className="card-body">
-                  {location.map((loc) => (
-                    <Chip
-                      icon={<LocationOnIcon />}
-                      key={loc.key}
-                      label={`Region: ${loc.region}   Area: ${loc.area}`}
-                      style={{
-                        color: "#fafafa",
-                        background: "#e53935",
-                        margin: 3,
-                      }}
-                    />
-                  ))}
+                  {location
+                    .slice((page - 1) * amount, page * amount)
+                    .map((loc) => (
+                      <Chip
+                        icon={<LocationOnIcon />}
+                        key={loc.key}
+                        label={`Region: ${loc.region}   Area: ${loc.area}`}
+                        style={{
+                          color: "#fafafa",
+                          background: "#e53935",
+                          margin: 3,
+                        }}
+                      />
+                    ))}
                 </div>
+                {pagesAmount > 1 && <Pagination
+                  page={page}
+                  pagesAmount={pagesAmount}
+                  setPage={setPage}
+                  pagesToSee={4}
+                />}
               </div>
             ) : (
               <div className="alert alert-dark mt-3" role="alert">

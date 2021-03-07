@@ -12,11 +12,12 @@ export const Pagination = ({ page, pagesAmount, setPage, pagesToSee = 10 }) => {
   const activePage = (p) => (page === p ? "active" : "");
 
   const iniIdx =
-    page > halfPagesToSee
+    pagesAmount > pagesToSee && page > halfPagesToSee
       ? page > pagesAmount - halfPagesToSee
         ? pagesAmount - pagesToSee
         : page - halfPagesToSee
       : 0;
+
   const finIdx = page > halfPagesToSee ? page + halfPagesToSee : pagesToSee;
 
   const pages = arrPages(pagesAmount)

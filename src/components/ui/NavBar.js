@@ -25,7 +25,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div style={{ width: "100%" }}>
+    <nav style={{ width: "100%" }}>
       <Box display="flex" p={1}>
         <Box p={1} flexGrow={1}>
           <NavLink exact to="/pokedex">
@@ -48,6 +48,6 @@ export const Navbar = () => {
           </Button>
         </Box>
       </Box>
-    </div>
+    </nav>
   );
 };

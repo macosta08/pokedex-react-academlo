@@ -9,6 +9,7 @@ export const DashboardRoutes = () => {
   return (
     <>
       <Navbar />
+
       <Switch>
         <Route exact path="/pokedex" component={Pokedex} />
 

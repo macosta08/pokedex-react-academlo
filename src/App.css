@@ -1,15 +1,6 @@
-.App {
-  text-align: center;
-}
-
-.App-header {
-  background-color: #fbf7f775;
-  min-height: 100vh;
+.img-conter {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: flex-end;
 }
 
 .img-big {
@@ -18,11 +9,4 @@
   width: 512px;
   height: 512px;
   z-index: -2;
-}
-
-@media (max-width: 576px) {
-  .img-big {
-    width: 64px;
-    height: 64px;
-  }
 }

@@ -75,17 +75,13 @@ export const Pokedex = () => {
 
   return (
     <div className="container">
-      <div className="d-flex flex-row bd-highlight mb-3">
-        <div className="p-2 bd-highlight">
-          <div className="title-text">
-            <h1>Pokemon</h1>
+      <div className="d-flex justify-content-center align-items-center flex-column bd-highlight mb-3">
+        <h1>Pokemon</h1>
 
-            <p>Search for your Pokémon by name or by type</p>
+        <p>Search for your Pokémon by name or by type</p>
 
-            <div className="input-name">
-              <CustomizedInputBase hadleInputChange={hadleInputChange} />
-            </div>
-          </div>
+        <div className="input-name">
+          <CustomizedInputBase hadleInputChange={hadleInputChange} />
         </div>
       </div>
 
@@ -96,7 +92,7 @@ export const Pokedex = () => {
         />
       </div>
 
-      <div className="container paddCont">
+      <div className="container">
         <div className="row">{CardPokemon}</div>
       </div>
 

@@ -1,7 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 import { AuthContext } from "./auth/AuthContext";
 import { authReducer } from "./auth/authReducer";
-
 import { AppRouter } from "./routers/AppRouter";
 import "./App.css";
 const init = () => {
@@ -16,14 +15,12 @@ const App = () => {
 
   return (
     <AuthContext.Provider value={{ user, dispatch }}>
-      <div className=" App-header">
-        <div className="position-relative">
-          <div className="position-absolute top-0 start-0">
-            <div
-              className="img-big"
-              style={{ backgroundImage: "url(/img/pokeball-mag.png)" }}
-            ></div>
-          </div>
+      <div>
+        <div className="img-conter">
+          <div
+            className="img-big"
+            style={{ backgroundImage: "url(/img/pokeball-mag.png)" }}
+          ></div>
         </div>
         <AppRouter />
       </div>

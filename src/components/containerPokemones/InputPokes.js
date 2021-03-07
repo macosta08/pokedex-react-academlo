@@ -9,7 +9,7 @@ export default function CustomizedInputBase({ hadleInputChange }) {
       <SearchIcon />
 
       <InputBase
-        placeholder="Search by name of Pokémon"
+        placeholder="Search by name"
         inputProps={{ "aria-label": "search google maps" }}
         onChange={hadleInputChange}
       />

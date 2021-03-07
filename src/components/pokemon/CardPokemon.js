@@ -4,9 +4,10 @@ import { BaseStats } from "../baseStats/BaseStats";
 import { TypeIconPoke } from "../typeIconPoke/TypeIconPoke";
 import { Button } from "@material-ui/core";
 import "./cardPokemon.css";
+import { capitalize } from "../../utils/capitalize";
 
 export const CardPokemon = ({ id, infoPoke }) => {
-  let namePoke = infoPoke.name.charAt(0).toUpperCase() + infoPoke.name.slice(1);
+  const namePoke = capitalize(infoPoke.name);
   return (
     <>
       {infoPoke && (

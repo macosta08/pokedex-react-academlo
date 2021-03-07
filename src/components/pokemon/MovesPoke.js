@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Chip } from "@material-ui/core";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import { Pagination } from "../containerPokemones/Pagination";
+import { capitalize } from "../../utils/capitalize";
 
 export const MovesPoke = ({ infoPoke }) => {
   const [page, setPage] = useState(1);
@@ -15,7 +16,7 @@ export const MovesPoke = ({ infoPoke }) => {
       <Chip
         icon={<CheckCircleIcon />}
         key={m.move.name}
-        label={m.move.name}
+        label={capitalize(m.move.name)}
         style={{
           color: "#fafafa",
           background: "#e53935",

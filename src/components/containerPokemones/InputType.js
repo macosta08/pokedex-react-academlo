@@ -1,6 +1,10 @@
 import React from "react";
 
-export const InputType = ({ hadleInputTypePoke, filterTypesPokemon }) => {
+export const InputType = ({
+  hadleInputTypePoke,
+  filterTypesPokemon,
+  valueInputSelect,
+}) => {
   const optionTypes = filterTypesPokemon.map((type) => (
     <option key={type.name}>{type.name}</option>
   ));
@@ -10,6 +14,7 @@ export const InputType = ({ hadleInputTypePoke, filterTypesPokemon }) => {
       <div className="p-2 bd-highlight">
         <div className="input-group">
           <select
+            value={valueInputSelect}
             className="form-select "
             id="inputGroupSelect02"
             onChange={hadleInputTypePoke}

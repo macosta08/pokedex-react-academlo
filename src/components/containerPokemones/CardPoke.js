@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { capitalize } from "../../utils/capitalize";
 import { request } from "../../utils/HttpMethod";
 import { typePokeBckg } from "../../utils/typePokeBckg";
 import { BaseStats } from "../baseStats/BaseStats";
@@ -9,7 +10,7 @@ import "./cardPoke.css";
 
 export const CardPoke = ({ pokemon }) => {
   const [poke, setPoke] = useState(null);
-  let namePoke = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+  const namePoke = capitalize(pokemon.name);
 
   const bckgColor = (type) => {
     const typeExist = typePokeBckg.hasOwnProperty(type);

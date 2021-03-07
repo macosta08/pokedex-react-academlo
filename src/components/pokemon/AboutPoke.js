@@ -4,6 +4,7 @@ import HeightIcon from "@material-ui/icons/Height";
 import FitnessCenterIcon from "@material-ui/icons/FitnessCenter";
 import LabelImportantIcon from "@material-ui/icons/LabelImportant";
 import GradeIcon from "@material-ui/icons/Grade";
+import { capitalize } from "../../utils/capitalize";
 
 export const AboutPoke = ({ infoPoke }) => {
   return (
@@ -20,7 +21,7 @@ export const AboutPoke = ({ infoPoke }) => {
               <div className="card-body">
                 <Chip
                   icon={<HeightIcon />}
-                  label={infoPoke.height}
+                  label={`${infoPoke.height / 10} m`}
                   style={{ color: "#fafafa", background: "#e53935" }}
                 />
               </div>
@@ -34,7 +35,7 @@ export const AboutPoke = ({ infoPoke }) => {
               <div className="card-body">
                 <Chip
                   icon={<FitnessCenterIcon />}
-                  label={infoPoke.weight}
+                  label={`${infoPoke.weight / 10} kg`}
                   style={{ color: "#fafafa", background: "#e53935" }}
                 />
               </div>
@@ -64,7 +65,7 @@ export const AboutPoke = ({ infoPoke }) => {
                   <Chip
                     icon={<GradeIcon />}
                     key={a.ability.name}
-                    label={a.ability.name}
+                    label={capitalize(a.ability.name)}
                     style={{
                       color: "#fafafa",
                       background: "#e53935",

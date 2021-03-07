@@ -12,7 +12,8 @@ export const Pokedex = () => {
   const [filterTypesPokemon, setfilterTypesPokemon] = useState([]);
   const [optionTypePoke, setOptionTypePoke] = useState(null);
   const [page, setPage] = useState(1);
-
+  const [valueInputText, setValueInputText] = useState("");
+  const [valueInputSelect, setValueInputSelect] = useState("All types...");
   const [amount, setAmount] = useState(4);
 
   const getPokes = async (
@@ -57,7 +58,9 @@ export const Pokedex = () => {
   const pagesAmount = Math.ceil(filterPokemon.length / amount);
 
   const hadleInputChange = ({ target }) => {
+    setValueInputSelect("All types...");
     const textSearch = target.value;
+    setValueInputText(textSearch);
     if (textSearch.length >= 3)
       setFilterPokemon(
         allPokemon.filter((poke) => poke.name.includes(textSearch))
@@ -68,7 +71,10 @@ export const Pokedex = () => {
   };
 
   const hadleInputTypePoke = (e) => {
+    setValueInputText("");
+
     const type = e.target.value;
+    setValueInputSelect(type);
     const urlTypePoke = filterTypesPokemon.find((t) => t.name === type);
     setOptionTypePoke(urlTypePoke);
     setPage(1);
@@ -87,7 +93,10 @@ export const Pokedex = () => {
         <p>Search for your Pokémon by name or by type</p>
 
         <div className="input-name">
-          <CustomizedInputBase hadleInputChange={hadleInputChange} />
+          <CustomizedInputBase
+            hadleInputChange={hadleInputChange}
+            valueInputText={valueInputText}
+          />
         </div>
       </div>
 
@@ -96,6 +105,7 @@ export const Pokedex = () => {
         <InputType
           hadleInputTypePoke={hadleInputTypePoke}
           filterTypesPokemon={filterTypesPokemon}
+          valueInputSelect={valueInputSelect}
         />
       </div>
 

@@ -1,4 +1,4 @@
-import { Button, Chip } from "@material-ui/core";
+import { Button, capitalize, Chip } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router";
 import { request } from "../../utils/HttpMethod";
@@ -20,9 +20,6 @@ export const EncountersPoke = ({ history }) => {
   const { id } = useParams();
 
   const locationInfo = useLocation();
-  const transformName = (name) => {
-    return name.charAt(0).toUpperCase() + name.slice(1);
-  };
 
   const getLocationArea = (locationArea) => {
     const arrLocArea = locationArea
@@ -41,11 +38,11 @@ export const EncountersPoke = ({ history }) => {
     ) => {
       const response = await request(endpoint);
       setInfoPoke(response.data);
-      setPokeName(transformName(response.data.name));
+      setPokeName(capitalize(response.data.name));
     };
     if (locationInfo.state) {
       setInfoPoke(locationInfo.state);
-      setPokeName(transformName(locationInfo.state.name));
+      setPokeName(capitalize(locationInfo.state.name));
     } else {
       getPoke();
     }
@@ -109,7 +106,9 @@ export const EncountersPoke = ({ history }) => {
                       <Chip
                         icon={<LocationOnIcon />}
                         key={loc.key}
-                        label={`Region: ${loc.region}   Area: ${loc.area}`}
+                        label={`Region: ${capitalize(
+                          loc.region
+                        )} /  Area: ${capitalize(loc.area)}`}
                         style={{
                           color: "#fafafa",
                           background: "#e53935",
@@ -118,12 +117,14 @@ export const EncountersPoke = ({ history }) => {
                       />
                     ))}
                 </div>
-                {pagesAmount > 1 && <Pagination
-                  page={page}
-                  pagesAmount={pagesAmount}
-                  setPage={setPage}
-                  pagesToSee={4}
-                />}
+                {pagesAmount > 1 && (
+                  <Pagination
+                    page={page}
+                    pagesAmount={pagesAmount}
+                    setPage={setPage}
+                    pagesToSee={4}
+                  />
+                )}
               </div>
             ) : (
               <div className="alert alert-dark mt-3" role="alert">

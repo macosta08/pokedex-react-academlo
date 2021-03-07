@@ -5,6 +5,7 @@ import CustomizedInputBase from "./InputPokes";
 import { InputType } from "./InputType";
 import { Pagination } from "./Pagination";
 import "./conatinerPoke.css";
+import { InputAmountPoke } from "./InputAmountPoke";
 export const Pokedex = () => {
   const [allPokemon, setAllPokemon] = useState([]);
   const [filterPokemon, setFilterPokemon] = useState([]);
@@ -12,7 +13,7 @@ export const Pokedex = () => {
   const [optionTypePoke, setOptionTypePoke] = useState(null);
   const [page, setPage] = useState(1);
 
-  const [amount] = useState(4);
+  const [amount, setAmount] = useState(4);
 
   const getPokes = async (
     endpoint = "https://pokeapi.co/api/v2/pokemon?limit=898"
@@ -73,6 +74,11 @@ export const Pokedex = () => {
     setPage(1);
   };
 
+  const hadleInputAmountPoke = (e) => {
+    const amountPoke = e.target.value;
+    setAmount(amountPoke);
+  };
+
   return (
     <div className="container">
       <div className="d-flex justify-content-center align-items-center flex-column bd-highlight mb-3">
@@ -86,6 +92,7 @@ export const Pokedex = () => {
       </div>
 
       <div className="d-flex flex-row-reverse bd-highlight">
+        <InputAmountPoke hadleInputAmountPoke={hadleInputAmountPoke} />
         <InputType
           hadleInputTypePoke={hadleInputTypePoke}
           filterTypesPokemon={filterTypesPokemon}
